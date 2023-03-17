@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 /**
- * main
+ * main - z to a
  *
- * Description
+ * Description: z to a
  *
- * Return
+ * Return: 0
 */
 int main(void)
 {
