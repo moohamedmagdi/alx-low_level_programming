@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 /**
- * main
+ * main - no before ten
  *
- * Description
+ * Description: no before ten
  *
- * Return
+ * Return: 0
 */
 int main(void)
 {
