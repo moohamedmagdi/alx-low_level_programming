@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 /**
- * main
+ * main - from to
  *
- * Description
+ * Description: from to
  *
- * Return
+ * Return: 0
 */
 int main(void)
 {
@@ -13,7 +13,7 @@ int main(void)
 
 	for (n = 48; n < 58; n++)
 	{
-		for (m =49; m < 58; m++)
+		for (m = 49; m < 58; m++)
 		{
 			for (l = 50; l < 58; l++)
 			{
