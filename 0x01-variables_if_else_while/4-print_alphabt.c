@@ -1,12 +1,13 @@
-#include <>
-#include <>
-#include <>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 /**
- * main - 
+ * main - select certain no
  *
- * description:
+ * description: select certain no
  *
- * Return:
+ * Return: 0
 */
 int main(void)
 {
