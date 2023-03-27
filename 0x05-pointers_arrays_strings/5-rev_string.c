@@ -1,14 +1,14 @@
 #include "main.h"
 /**
  * rev_string - reverses a string
- * @s: holi
+ * @s: input
  *
  */
 void rev_string(char *s)
 {
 	int i;
 	int j;
-	int temp;
+	char temp;
 	int length;
 
 	while (s[i] != 0)
