@@ -1,89 +1,78 @@
 #include "main.h"
 
 /**
- * infinite_add - adds two integers stored as strings
- *
- * @n1: first integer string to add
- * @n2: second integer string to add
- * @r: array to store resulting string in
- * @size_r: size of array r
- *
- * Return: the summed string in r. If r is too small for the result,
- * return 0;
- */
+* infinite_add - a function that adds two numbers
+* @n1: a char pointer given by main that represents a num
+* @n2: a char pointer given by main that represents a num
+* @r: a buffer given by main
+* @size_r: the buffer size given by main
+*
+* Description: a function that adds numbers that are passed
+*	as a strings and we add them up
+* Return: the result to char *r
+* A: count up how long both n1 and n2 is
+* C: A counter is 1 more than the index numbers so we need to decrement by 1
+* D: if the buffer size given is less than the size of i or j
+*	then we want to return 0 which signals main error
+* E: we sum and append the last digit. we will need to swap later
+*	we loop from the last indices and go until size_r
+* F: We add up the index of n1[i] and n2[j]
+* G: if i and j are negative we break out of the loop because we have
+*	iterated through all the character arrays and there is nothing left
+* H: Simple overflow handling. we want the last digit and if we had
+*	a number with a 1 in the tens digit we store that in tens
+*	we then incluide that 1 in the sum and move on
+* I: We had to swap because at step E we added and made our r[k]
+*	array from the end to the beginning instead of to the beginning
+*	to the end. this helped us deal with carry on ints but
+*	the downside is we need to swap later on which is tedious.
+*	another way of going forward to back and not having to deal with swaps
+*	would be a complex r[i-1] += 1 type of situation but that can be
+*	iffy with out of bounds array issues and some other stuff
+* J: So if we had k reach the size_r but we still had more i and j indicies
+*	to add then that is an error and we didnt finish so return 0
+* K: k was our buffer size counter. so it is only fitting we had to put the
+*	last char with the k counter as the null char. then we k--
+*	so we can start at the very last index right next tot the null char
+*/
+
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int carry = 0, index = 0, index2;
-	char *s1 = n1, *s2 = n2;
+	int i = 0, j = 0, k = 0;
+	int sum = 0;
+	int tens = 0;
+	int begin = 0;
+	int swap = 0;
 
-	while (*s1 != 0)
-		s1++;
-	while (*s2 != 0)
-		s2++;
-	size_r--;
-	r[size_r] = 0;
-	s1--;
-	s2--;
-	while (s2 != n2 - 1 && s1 != n1 - 1)
+	while (n1[i] != 0)/* A */
+		i++;
+	while (n2[j] != 0)
+		j++;
+	i--;/* C */
+	j--;
+	if (i > size_r || j > size_r)/* D */
+		return (0);
+	for ( ; k < size_r; i--, j--, k++)/* E */
 	{
-		r[index] = *s2 - '0' + *s1 + carry;
-		carry = 0;
-		if (r[index] > '9')
-		{
-			carry++;
-			r[index] -= 10;
-		}
-		index++;
-		s2--;
-		s1--;
-		if (size_r == index && (s1 != n1 - 1 || s2 != n2 - 1 || carry == 1))
-			return (0);
+		sum = tens;
+		if (i >= 0)/* F */
+			sum += n1[i] - '0';
+		if (j >= 0)
+			sum += n2[j] - '0';
+		if (i < 0 && j < 0 && sum == 0)/* G */
+			break;
+		tens = sum / 10;/* H */
+		r[k] = sum % 10 + '0';
 	}
-	while (s1 != n1 - 1)
+	if (i >= 0 || j >= 0 || sum > 0)/* J */
+		return (0);
+	r[k] = '\0';/* K */
+	k--;
+	for ( ; begin < k; k--, begin++)/* I */
 	{
-		r[index] = *s1 + carry;
-		carry = 0;
-		if (r[index] > '9')
-		{
-			carry = 1;
-			r[index] -= 10;
-		}
-		s1--;
-		index++;
-		if (size_r == index && (s1 != n1 - 1 ||  carry == 1))
-			return (0);
-	}
-	while (s2 != n2 - 1)
-	{
-		r[index] = *s2 + carry;
-		carry = 0;
-		if (r[index] > '9')
-		{
-			carry = 1;
-			r[index] -= 10;
-		}
-		s2--;
-		index++;
-		if (size_r == index && (s2 != n2 - 1 || carry == 1))
-			return (0);
-	}
-	if (carry == 1)
-	{
-		r[index] = '1';
-		r[index + 1] = 0;
-	}
-	else
-	{
-		r[index--] = 0;
-	}
-	index2 = 0;
-	while (index2 <= index)
-	{
-		carry = r[index];
-		r[index] = r[index2];
-		r[index2] = carry;
-		index--;
-		index2++;
+		swap = r[k];
+		r[k] = r[begin];
+		r[begin] = swap;
 	}
 	return (r);
 }
