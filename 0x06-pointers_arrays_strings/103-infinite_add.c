@@ -14,7 +14,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	int l1, l2, tmpl, rl, i, sum, num1, num2, carry;
 	char tmp[10000];
 
-	rl = i = l1 = l2 = sum = num1 = num2 = carry = 0;
+	rl = i = l1 = l2 = tmp1 = sum = num1 = num2 = carry = 0;
 	while (n1[l1] != '\0')
 		l1++;
 	while (n2[l2] != '\0')
