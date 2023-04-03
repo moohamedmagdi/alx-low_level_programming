@@ -6,26 +6,27 @@
  * @s: string
  * @accept: prefix
  *
- * Return: no. byte
+ * Return: no. bt
  */
 
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int byt = 0;
+	unsigned int bt = 0;
 	int x;
 
 	while (*s)
+	{
 		for (x = 0; accept[x]; x++)
 		{
 			if (*s == accept[x])
 			{
-				byt++;
+				bt++;
 				break;
 			}
 			else if (accept[x + 1] == '\0')
-				return (byt);
+				return (bt);
 		}
 		s++;
 	}
-	return (byt);
+	return (bt);
 }
