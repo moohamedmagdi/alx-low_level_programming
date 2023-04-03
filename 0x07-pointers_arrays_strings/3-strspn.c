@@ -13,6 +13,7 @@ unsigned int _strspn(char *s, char *accept)
 {
 	unsigned int byt = 0;
 	int x;
+
 	while (*s)
 		for (x = 0; accept[x]; x++)
 		{

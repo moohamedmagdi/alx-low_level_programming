@@ -15,8 +15,8 @@ void *_memcpy(void *dest, const void *src, size_t n)
 	unsigned int x;
 
 	for (x = 0; index < n; x++)
-  {
-    dest[x] = src[x];
-  }
+	{
+		dest[x] = src[x];
+	}
 	return (dest);
 }
