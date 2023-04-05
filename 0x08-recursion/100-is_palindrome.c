@@ -4,11 +4,12 @@ int chec(char *st, int len, int co);
 
 /**
  * chec - check
- * @str: strn
+ * @st: strn
  * @len: len strn
- * @count: counts
+ * @co: counts
  * Return: 1 if palindrome, 0 if not
  */
+
 int chec(char *st, int len, int co)
 {
         if (co >= len)
@@ -24,10 +25,12 @@ int chec(char *st, int len, int co)
  *
  * Return: 1 if palindrome, 0 if not
  */
+
 int is_palindrome(char *s)
 {
         int len = _strlen_recursion(s);
         int co = 0;
+
         return (chec(s, len - 1, co));
 }
 
