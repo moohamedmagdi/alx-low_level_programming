@@ -12,11 +12,11 @@ int chec(char *st, int len, int co);
 
 int chec(char *st, int len, int co)
 {
-        if (co >= len)
-                return (1);
-        if (st[len] == st[co])
-                return (chec(st, len - 1, co + 1));
-        return (0);
+	if (co >= len)
+		return (1);
+	if (st[len] == st[co])
+		return (chec(st, len - 1, co + 1));
+	return (0);
 }
 
 /**
@@ -28,10 +28,10 @@ int chec(char *st, int len, int co)
 
 int is_palindrome(char *s)
 {
-        int len = _strlen_recursion(s);
-        int co = 0;
+	int len = _strlen_recursion(s);
+	int co = 0;
 
-        return (chec(s, len - 1, co));
+	return (chec(s, len - 1, co));
 }
 
 /**
