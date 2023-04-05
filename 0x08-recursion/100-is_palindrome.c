@@ -25,11 +25,12 @@ int is_palindrome(char *s)
 
 int chec(char *s)
 {
-	int l = _strlen_recursion(s) - 1;
-	if (*s == s[l])
+	int x = _strlen_recursion(s) - 1;
+
+	if (*s == s[x])
 	{
 		s++;
-		l--;
+		x--;
 	}
 	else
 	{
