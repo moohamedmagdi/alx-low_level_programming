@@ -8,22 +8,27 @@
  * @argv: value
  * Return: 0
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int x, y, add;
+	int x;
+	int sum = 0;
+	char *ptr;
+	int num;
 
-	for (x = 1; x < argc; x++)
+	if (argc > 1)
 	{
-		for (y = 0; argv[x][y] != '\0'; y++)
+		for (x = 1; argv[x]; x++)
 		{
-			if (!isdigit(argv[x][y]))
+			num = strtol(argv[x], &ptr, 10);
+			if (!*ptr)
+				sum += num;
+			else
 			{
-				printf("Error\n");
+				printf("%s\n", "Error");
 				return (1);
 			}
 		}
-		add = add + atoi(argv[x]);
 	}
-	printf("%d\n", add);
+	printf("%d\n", sum);
 	return (0);
 }
