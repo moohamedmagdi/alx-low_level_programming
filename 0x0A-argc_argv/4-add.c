@@ -5,7 +5,7 @@
 
 /**
  * main - add var func.
- * @argc: count 
+ * @argc: count
  * @argv: value
  * Return: 0
  */
