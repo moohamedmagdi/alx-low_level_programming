@@ -11,25 +11,20 @@
  */
 int main(int argc, char *argv[])
 {
-	int x;
-	int sum = 0;
-	char *ptr;
-	int num;
+	int x, y, add;
 
-	if (argc > 1)
+	for (x = 1; x < argc; x++)
 	{
-		for (x = 1; argv[x]; x++)
+		for (y = 0; argv[x][y] != '\0'; y++)
 		{
-			num = strtol(argv[x], &ptr, 10);
-			if (!*ptr)
-				sum += num;
-			else
+			if (!isdigit(argv[x][y]))
 			{
-				printf("%s\n", "Error");
+				printf("Error\n");
 				return (1);
 			}
 		}
+		add = add + atoi(argv[x]);
 	}
-	printf("%d\n", sum);
+	printf("%d\n", add);
 	return (0);
 }
