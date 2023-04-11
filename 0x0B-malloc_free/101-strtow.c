@@ -2,11 +2,11 @@
 #include <stdlib.h>
 
 /**
- * ch_free_grid - frees a 2 dimensional array.
- * @grid: multidimensional array of char.
- * @height: height of the array.
+ * ch_free_grid - two dim array
+ * @grid: grid of array
+ * @height: height of the array
  *
- * Return: no return
+ * Return: nothing
  */
 void ch_free_grid(char **grid, unsigned int height)
 {
@@ -20,10 +20,10 @@ void ch_free_grid(char **grid, unsigned int height)
 }
 
 /**
- * strtow - splits a string into words.
- * @str: string.
+ * strtow - split strng
+ * @str: string
  *
- * Return: pointer of an array of integers
+ * Return: pointer of array
  */
 char **strtow(char *str)
 {
