@@ -61,7 +61,7 @@ char **strtow(char *str)
 		}
 		for (z = 0; i <= y; i++, z++)
 			ao[x][z] = str[i];
-		ao[i][z] = '\0';
+		ao[x][z] = '\0';
 	}
 	ao[x] = NULL;
 	return (ao);
