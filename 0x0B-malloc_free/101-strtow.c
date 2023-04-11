@@ -29,12 +29,12 @@ void my_free_grid(char **grid, unsigned int height)
 char **strtow(char *str)
 {
 	char **ao;
-	unsigned int c, h, i, j, a1;
+	unsigned int y, h, x, z, i;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-	for (c = h = 0; str[c] != '\0'; c++)
-		if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
+	for (y = h = 0; str[y] != '\0'; y++)
+		if (str[y] != ' ' && (str[y + 1] == ' ' || str[y + 1] == '\0'))
 			h++;
 	ao = malloc((h + 1) * sizeof(char *));
 	if (ao == NULL || h == 0)
@@ -42,27 +42,27 @@ char **strtow(char *str)
 		free(ao);
 		return (NULL);
 	}
-	for (i = a1 = 0; i < h; i++)
+	for (x = i = 0; x < h; x++)
 	{
-		for (c = a1; str[c] != '\0'; c++)
+		for (y = i; str[y] != '\0'; y++)
 		{
-			if (str[c] == ' ')
-				a1++;
-			if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
+			if (str[y] == ' ')
+				i++;
+			if (str[y] != ' ' && (str[y + 1] == ' ' || str[y + 1] == '\0'))
 			{
-				ao[i] = malloc((c - a1 + 2) * sizeof(char));
-				if (ao[i] == NULL)
+				ao[x] = malloc((y - i + 2) * sizeof(char));
+				if (ao[x] == NULL)
 				{
-					my_free_grid(ao, i);
+					my_free_grid(ao, x);
 					return (NULL);
 				}
 				break;
 			}
 		}
-		for (j = 0; a1 <= c; a1++, j++)
-			ao[i][j] = str[a1];
-		ao[i][j] = '\0';
+		for (z = 0; i <= y; i++, z++)
+			ao[x][z] = str[i];
+		ao[i][z] = '\0';
 	}
-	ao[i] = NULL;
+	ao[x] = NULL;
 	return (ao);
 }
