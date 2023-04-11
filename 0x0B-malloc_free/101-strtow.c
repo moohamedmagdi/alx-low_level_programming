@@ -29,20 +29,20 @@ void my_free_grid(char **grid, unsigned int height)
 char **strtow(char *str)
 {
 	char **ao;
-	unsigned int y, h, x, z, i;
+	unsigned int height, y, x, z, i;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-	for (y = h = 0; str[y] != '\0'; y++)
+	for (y = height = 0; str[y] != '\0'; y++)
 		if (str[y] != ' ' && (str[y + 1] == ' ' || str[y + 1] == '\0'))
-			h++;
-	ao = malloc((h + 1) * sizeof(char *));
-	if (ao == NULL || h == 0)
+			height++;
+	ao = malloc((height + 1) * sizeof(char *));
+	if (ao == NULL || height == 0)
 	{
 		free(ao);
 		return (NULL);
 	}
-	for (x = i = 0; x < h; x++)
+	for (x = i = 0; x < height; x++)
 	{
 		for (y = i; str[y] != '\0'; y++)
 		{
