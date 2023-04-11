@@ -1,12 +1,29 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * strtow - concatenat
- *@str: string
+ * ch_free_grid - frees a 2 dimensional array.
+ * @grid: multidimensional array of char.
+ * @height: height of the array.
  *
- * Return: new strng
+ * Return: no return
+ */
+void ch_free_grid(char **grid, unsigned int height)
+{
+	if (grid != NULL && height != 0)
+	{
+		for (; height > 0; height--)
+			free(grid[height]);
+		free(grid[height]);
+		free(grid);
+	}
+}
+
+/**
+ * strtow - splits a string into words.
+ * @str: string.
+ *
+ * Return: pointer of an array of integers
  */
 char **strtow(char *str)
 {
@@ -35,7 +52,7 @@ char **strtow(char *str)
 				aout[i] = malloc((c - a1 + 2) * sizeof(char));
 				if (aout[i] == NULL)
 				{
-					free_grid(aout, i);
+					ch_free_grid(aout, i);
 					return (NULL);
 				}
 				break;
@@ -47,22 +64,4 @@ char **strtow(char *str)
 	}
 	aout[i] = NULL;
 	return (aout);
-}
-
-/**
- * ch_free_grid - frees a 2 dimensional array.
- * @grid: multidimensional array of char.
- * @height: height of the array.
- *
- * Return: no return
- */
-void free_grid(int **grid, int height);
-{
-	if (grid != NULL && height != 0)
-	{
-		for (; height > 0; height--)
-			free(grid[height]);
-		free(grid[height]);
-		free(grid);
-	}
 }
