@@ -5,7 +5,6 @@
 /**
  * strtow - concatenat
  *@str: string
- *@av: arguments
  *
  * Return: new strng
  */
