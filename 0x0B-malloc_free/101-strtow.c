@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * ch_free_grid - two dim array
@@ -8,7 +9,7 @@
  *
  * Return: nothing
  */
-void ch_free_grid(char **grid, unsigned int height)
+void my_free_grid(char **grid, unsigned int height)
 {
 	if (grid != NULL && height != 0)
 	{
@@ -52,7 +53,7 @@ char **strtow(char *str)
 				aout[i] = malloc((c - a1 + 2) * sizeof(char));
 				if (aout[i] == NULL)
 				{
-					ch_free_grid(aout, i);
+					my_free_grid(aout, i);
 					return (NULL);
 				}
 				break;
