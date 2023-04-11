@@ -56,7 +56,7 @@ char **strtow(char *str)
  *
  * Return: no return
  */
-void ch_free_grid(char **grid, unsigned int height)
+void free_grid(int **grid, int height);
 {
 	if (grid != NULL && height != 0)
 	{
