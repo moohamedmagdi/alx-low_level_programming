@@ -4,49 +4,68 @@
 #include <stdio.h>
 
 /**
-  * _isdigit - consist digits
-  * @argv: current argument
+  * _puts - print str
+  * @str: pointer to str
   *
-  * Return: return 0 digits, 1 not digit
+  * Return: void
   */
-
-int _isdigit(char *argv)
+void _puts(char *str)
 {
-	int x;
+	int i = 0;
 
-	x = 0;
-	while (argv[x])
+	while (str[i])
 	{
-		if (argv[x] >= '0' && argv[x] <= '9')
-			x++;
-		else
-			return (1);
+		_putchar(str[i]);
+		i++;
 	}
-	return (0);
 }
 
 /**
-  * _atoi - convert ascii to values
+  * _atoi - convert str into an int
   * @s: source
   *
   * Return: value
   */
 
-int _atoi(char *s)
+int _atoi(const char *s)
 {
-	int x, res;
+	int sign = 1;
+	unsigned long int resp = 0, firstnum, i;
 
-	x = res = 0;
-	while (s[x])
+	
+	for (firstnum = 0; !(s[firstnum] >= 48 && s[firstnum] <= 57); firstnum++)
 	{
-		if (s[x] >= '0' && s[x] <= '9')
+		if (s[firstnum] == '-')
 		{
-			result *= 10;
-			result += (s[x] - '0');
+			sign *= -1;
 		}
-		x++;
 	}
-	return (res);
+	for (i = firstnum; s[i] >= 48 && s[i] <= 57; i++)
+	{
+		resp *= 10;
+		resp += (s[i] -48);
+	}
+
+	return (sing * resp);
+}
+
+/**
+ * print_int - print int
+ * @n: int
+ *
+ * Return: 0
+ */
+
+void print_int(unsigned long int n)
+{
+	unsigned long int divisor = 1, i, resp;
+
+	for (i = 0; n / divisor > 9; i++, divisor *=10);
+	for (; divisor >= 1; n %= divisor, divisor /= 10)
+	{
+		resp = n / divisor;
+		_putchar('0' + resp);
+	}
 }
 
 /**
@@ -54,26 +73,19 @@ int _atoi(char *s)
   * @argc: count
   * @argv: value 2D
   *
-  * Return: return 0 success, 98 not success
+  * Return: 0 success, 98 not success
   */
 
 int main(int argc, char *argv[])
 {
-	int x;
+	(void)argc;
 
-	malloc();
 	if (argc != 3)
 	{
-		printf("Error\n");
+		_puts("Error ");
 		exit(98);
 	}
-	for (x = 1; x < argc; x++)
-	{
-		if (_isdigit(argv[x]))
-		{
-			printf("Error\n");
-			exit(98);
-		}
-	}
+	print_int(_atoi(argv[1]) * _atoi(argv[2]));
+	_putchar('\n');
 	return (0);
 }
