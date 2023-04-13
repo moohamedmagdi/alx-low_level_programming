@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * malloc_checked - creates array
+ * malloc_checked - create array
  * @b: in
  *
  * Return: Out
