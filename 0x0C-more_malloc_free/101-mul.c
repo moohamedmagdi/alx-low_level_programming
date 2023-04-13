@@ -78,7 +78,7 @@ void print_int(unsigned long int n)
   * Return: 0 success, 98 not success
   */
 
-int main(int argc, char const *argv[])
+int main(int argc, const char *argv[])
 {
 	(void)argc;
 
