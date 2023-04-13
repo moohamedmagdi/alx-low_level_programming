@@ -5,7 +5,7 @@
 /**
  * malloc_checked - creates array
  * @b: in
-
+ *
  * Return: Out
  */
 
