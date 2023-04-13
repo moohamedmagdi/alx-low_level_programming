@@ -1,3 +1,5 @@
+#include "main.h"
+#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -53,6 +55,7 @@ int _atoi(char *s)
   *
   * Return: return 0 success, 98 not success
   */
+
 int main(int argc, char *argv[])
 {
 	int x;
