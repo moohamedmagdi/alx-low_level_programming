@@ -33,7 +33,6 @@ int _atoi(const char *s)
 	int sign = 1;
 	unsigned long int resp = 0, firstnum, i;
 
-	
 	for (firstnum = 0; !(s[firstnum] >= 48 && s[firstnum] <= 57); firstnum++)
 	{
 		if (s[firstnum] == '-')
@@ -44,7 +43,7 @@ int _atoi(const char *s)
 	for (i = firstnum; s[i] >= 48 && s[i] <= 57; i++)
 	{
 		resp *= 10;
-		resp += (s[i] -48);
+		resp += (s[i] - 48);
 	}
 
 	return (sign * resp);
@@ -61,7 +60,8 @@ void print_int(unsigned long int n)
 {
 	unsigned long int divisor = 1, i, resp;
 
-	for (i = 0; n / divisor > 9; i++, divisor *=10);
+	for (i = 0; n / divisor > 9; i++, divisor *= 10)
+	;
 
 	for (; divisor >= 1; n %= divisor, divisor /= 10)
 	{
@@ -71,7 +71,7 @@ void print_int(unsigned long int n)
 }
 
 /**
-  * main - main 
+  * main - main
   * @argc: count
   * @argv: value
   *
