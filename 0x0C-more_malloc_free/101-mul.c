@@ -9,6 +9,7 @@
   *
   * Return: void
   */
+
 void _puts(char *str)
 {
 	int i = 0;
@@ -46,7 +47,7 @@ int _atoi(const char *s)
 		resp += (s[i] -48);
 	}
 
-	return (sing * resp);
+	return (sign * resp);
 }
 
 /**
@@ -61,6 +62,7 @@ void print_int(unsigned long int n)
 	unsigned long int divisor = 1, i, resp;
 
 	for (i = 0; n / divisor > 9; i++, divisor *=10);
+
 	for (; divisor >= 1; n %= divisor, divisor /= 10)
 	{
 		resp = n / divisor;
@@ -71,12 +73,12 @@ void print_int(unsigned long int n)
 /**
   * main - main 
   * @argc: count
-  * @argv: value 2D
+  * @argv: value
   *
   * Return: 0 success, 98 not success
   */
 
-int main(int argc, char *argv[])
+int main(int argc, char const *argv[])
 {
 	(void)argc;
 
