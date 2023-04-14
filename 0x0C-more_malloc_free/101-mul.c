@@ -3,11 +3,11 @@
 #include <stdio.h>
 
 /**
-  * _puts - print str
-  * @str: pointer to str
-  *
-  * Return: void
-  */
+ * _puts - print str
+ * @str: pointer to str
+ *
+ * Return: void
+ */
 
 void _puts(char *str)
 {
@@ -21,11 +21,11 @@ void _puts(char *str)
 }
 
 /**
-  * _atoi - convert str into an int
-  * @s: source
-  *
-  * Return: value
-  */
+ * _atoi - convert str into an int
+ * @s: source
+ *
+ * Return: value
+ */
 
 int _atoi(const char *s)
 {
@@ -69,12 +69,12 @@ void print_int(unsigned long int n)
 }
 
 /**
-  * main - main
-  * @argc: count
-  * @argv: value
-  *
-  * Return: 0
-  */
+ * main - main
+ * @argc: count
+ * @argv: value
+ *
+ * Return: 0
+ */
 
 int main(int argc, const char *argv[])
 {
