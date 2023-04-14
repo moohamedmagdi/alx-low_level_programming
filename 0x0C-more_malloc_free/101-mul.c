@@ -73,7 +73,7 @@ void print_int(unsigned long int n)
   * @argc: count
   * @argv: value
   *
-  * Return: 0 success, 98 not success
+  * Return: 0 
   */
 
 int main(int argc, const char *argv[])
