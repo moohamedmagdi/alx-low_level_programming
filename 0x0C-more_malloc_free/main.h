@@ -10,5 +10,8 @@ int _putchar(char c);
 void _puts(char *str);
 int _atoi(const char *s);
 void print_int(unsigned long int n);
+int _isdigit(int c);
+int _strlen(char *s);
+char *big_multiply(char *s1, char *s2);
 
 #endif
