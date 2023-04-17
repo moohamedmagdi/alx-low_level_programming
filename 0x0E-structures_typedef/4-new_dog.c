@@ -2,40 +2,36 @@
 #include <stdlib.h>
 
 /**
-  * new_dog - create type dog
-  * @name: name
-  * @age: age
-  * @owner: owner
-  *
-  * Return: pointer
-  */
+ * new_dog - entry point
+ * @name: string from main, name of pet
+ * @age: number from main, age of pet
+ * @owner: string from main, owner of pet
+ *
+ * Return: p
+ */
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	int nlen, olen, x;
-	dog_t *doggy;
-
-	nlen = olen = 0;
-	while (name[nlen++])
-	;
-	while (owner[olen++])
-	;
-	doggy = malloc(sizeof(dog_t));
-	if (doggy == NULL)
+	dog_t *p;
+	/* reserving memory to struct*/
+	p = malloc(sizeof(dog_t));
+	if (p == NULL)
 		return (NULL);
-
-	doggy->name = malloc(nlen * sizeof(doggy->name));
-	if (doggy == NULL)
+	/* Cpunting name pointer*/
+	if (name == NULL)
+	{
+		free(p);
+		free(owner);
 		return (NULL);
-	for (x = 0; x < nlen; x++)
-		doggy->name[x] = name[x];
-
-	doggy->age = age;
-
-	doggy->owner = malloc(olen * sizeof(doggy->owner));
-	if (doggy == NULL)
+	}
+	if (owner == NULL)
+	{
+		free(p);
+		free(name);
 		return (NULL);
-	for (x = 0; x < olen; x++)
-		doggy->owner[x] = owner[x];
-	return (doggy);
+	}
+	p->name = name;
+	p->age = age;
+	p->owner = owner;
+	return (p);
 }
