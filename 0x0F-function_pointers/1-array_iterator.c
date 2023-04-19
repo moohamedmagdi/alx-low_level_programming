@@ -9,8 +9,9 @@
 
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
-	size_t x;
+	int *x = array + size - 1;
 
-	for (x = 0; x < size; x++)
-		action(array[x]);
+	if (array && size && action)
+		while (array <= end)
+			action(*array++);
 }
