@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
-  * find_listint_loop - define function
+  * find_listint_loop - find
   * @head: linked list
   *
   * Return: NULL FOR NO LOOP
