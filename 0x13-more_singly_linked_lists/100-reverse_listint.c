@@ -1,9 +1,9 @@
 #include "lists.h"
 
 /**
-  * reverse_listint - define function
-  * @head: describe argument
-  * Return: what does it return?
+  * reverse_listint - reverse
+  * @head: head
+  * Return: poi of head
   */
 
 listint_t *reverse_listint(listint_t **head)
