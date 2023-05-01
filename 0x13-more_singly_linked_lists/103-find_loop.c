@@ -4,7 +4,7 @@
   * find_listint_loop - find
   * @head: linked list
   *
-  * Return: NULL FOR NO LOOP
+  * Return: poi 
   */
 
 listint_t *find_listint_loop(listint_t *head)
